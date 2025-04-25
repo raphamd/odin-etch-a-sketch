@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  width: 100vw;
+  height: 40px;
+  border-bottom: 1px solid lightgray;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.canvas {
+  width: 480px;
+  height: 480px;
+  outline: 1px solid lightgray;
+  display: flex;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.ceil {
+  flex: 1 auto;
+  border: 1px solid lightgray;
+}
