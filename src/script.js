@@ -5,7 +5,6 @@ function createCell(size) {
         cell.className = 'cell';
         cell.style.width = `${size}px`;
         cell.style.height = `${size}px`;
-        cell.style.border = '1px solid lightgray';
 
   return cell;
 }
@@ -23,6 +22,24 @@ function createCanvas(scale) {
   }
 }
 
+function configureCells() {
+  function onCellClicked(event) {
+    const getRandomGrayscaleColor = () => `hsla(0, 0%, ${Math.floor(Math.random() * 101)}%, 1)`;
+
+    const isCell = event.target.className === 'cell';
+    const isMouseButtonPressed = event.buttons === 1;
+
+    if (isMouseButtonPressed && isCell) {
+      event.target.style['background-color'] = getRandomGrayscaleColor();
+      event.target.style['border'] = 'none';
+    }
+  }
+
+  canvas.addEventListener('mousemove', onCellClicked);
+  canvas.addEventListener('mousedown', onCellClicked);
+}
+
 addEventListener('DOMContentLoaded', function(event){
   createCanvas(24);
+  configureCells()
 });
