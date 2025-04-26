@@ -7,15 +7,57 @@
 }
 
 body {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  background-color: black;
 }
 
 .header {
   width: 100vw;
-  height: 40px;
-  border-bottom: 1px solid lightgray;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.header .buttons {
+  display: flex;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.header .button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  appearance: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  transition: all 0.15s ease-in-out;
+  filter: invert(1);
+}
+
+.header .button:hover {
+  scale: 1.15;
+}
+
+.header .button:focus {
+  outline: none;
+}
+
+.header .button.pencil {
+  background-image: url('icons/pencil.svg');
+}
+
+.header .button.eraser {
+  background-image: url('icons/eraser.svg');
+}
+
+.header .button.grid {
+  background-image: url('icons/grid.svg');
 }
 
 .content {
@@ -34,7 +76,11 @@ body {
   user-select: none;
 }
 
-.ceil {
+.cell {
   flex: 1 auto;
-  border: 1px solid lightgray;
+  outline: 1px solid lightgray;
+}
+
+.cell:hover {
+  filter: brightness(80%);
 }
