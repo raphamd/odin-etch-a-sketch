@@ -1,6 +1,30 @@
 const canvas = document.querySelector('.canvas');
 const buttons = document.querySelector('.buttons');
 
+function showFadeOut(element) {
+  element.style.animation = 'fade-out 0.75s linear 1';
+  element.style.animationPlayState = 'playing';
+
+  setTimeout(function(){
+    element.remove();
+  }, 750);
+}
+
+function showLoadingScreen() {
+  const screen = document.createElement('div');
+  const loader = document.createElement('div');
+  const body = document.querySelector('body');
+
+  screen.classList.add('loading-screen');
+  loader.classList.add('loader');
+  screen.appendChild(loader);
+  body.appendChild(screen);
+
+  screen.addEventListener('animationend', function(){
+    showFadeOut(screen);
+  });
+}
+
 function createCell(size) {
   const cell = document.createElement('div');
         cell.className = 'cell';
@@ -74,6 +98,7 @@ function setupInterface() {
 }
 
 addEventListener('DOMContentLoaded', function(event){
+  showLoadingScreen();
   createCanvas(24);
   setupInterface();
 });
