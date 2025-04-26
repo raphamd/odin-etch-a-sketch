@@ -1,3 +1,13 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 *,
 *::before,
 *::after {
@@ -84,4 +94,28 @@ body {
 .cell:hover {
   z-index: 1;
   filter: brightness(40%);
+}
+
+.loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #347cdb; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear 1;
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  outline: none;
+  z-index: 2;
+  background-color: black;
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }
